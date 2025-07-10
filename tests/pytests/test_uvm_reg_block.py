@@ -294,6 +294,7 @@ def test_reg_block_get_reg_by_name():
 
         def build(self):
             self._set_lock()
+            self.set_prediction(predict_t.PREDICT_DIRECT)
     # SECOND REGISTER
     class temp_reg_2(uvm_reg):
         def __init__(self, name="temp_reg_2", reg_width=32):
@@ -301,6 +302,7 @@ def test_reg_block_get_reg_by_name():
 
         def build(self):
             self._set_lock()
+            self.set_prediction(predict_t.PREDICT_DIRECT)
     # THIRD REGISTER
     class temp_reg_3(uvm_reg):
         def __init__(self, name="temp_reg_3", reg_width=32):
@@ -308,6 +310,7 @@ def test_reg_block_get_reg_by_name():
 
         def build(self):
             self._set_lock()
+            self.set_prediction(predict_t.PREDICT_DIRECT)
     # FOUTH REGISTER
     class temp_reg_4(uvm_reg):
         def __init__(self, name="temp_reg_4", reg_width=32):
@@ -315,6 +318,7 @@ def test_reg_block_get_reg_by_name():
 
         def build(self):
             self._set_lock()
+            self.set_prediction(predict_t.PREDICT_DIRECT)
     # FIRST SUB REG BLOCK
     class temp_blk_1(uvm_reg_block):
         def __init__(self, name="temp_blk_1"):
@@ -370,6 +374,7 @@ def test_reg_block_get_field_by_name():
             self.fieldA.configure(self, 8, 0, 'RW', 0, 0)
             self.fieldB.configure(self, 16, 8, 'RW', 0, 0)
             self._set_lock()
+            self.set_prediction(predict_t.PREDICT_DIRECT)
     # SECOND REGISTER
     class temp_reg_2(uvm_reg):
         def __init__(self, name="temp_reg_2", reg_width=32):
@@ -383,6 +388,7 @@ def test_reg_block_get_field_by_name():
             self.fieldD.configure(self, 8, 8, 'RW', 0, 0)
             self.fieldE.configure(self, 8, 16, 'RW', 0, 0)
             self._set_lock()
+            self.set_prediction(predict_t.PREDICT_DIRECT)
     # THIRD REGISTER
     class temp_reg_3(uvm_reg):
         def __init__(self, name="temp_reg_3", reg_width=32):
@@ -394,6 +400,7 @@ def test_reg_block_get_field_by_name():
             self.fieldF.configure(self, 8, 0, 'RW', 0, 0)
             self.fieldG.configure(self, 8, 8, 'RW', 0, 0)
             self._set_lock()
+            self.set_prediction(predict_t.PREDICT_DIRECT)
     # FOUTH REGISTER
     class temp_reg_4(uvm_reg):
         def __init__(self, name="temp_reg_4", reg_width=32):
@@ -405,6 +412,7 @@ def test_reg_block_get_field_by_name():
             self.fieldH.configure(self, 8, 0, 'RW', 0, 0)
             self.fieldI.configure(self, 8, 8, 'RW', 0, 0)
             self._set_lock()
+            self.set_prediction(predict_t.PREDICT_DIRECT)
     # FIRST SUB REG BLOCK
     class temp_blk_1(uvm_reg_block):
         def __init__(self, name="temp_blk_1"):
