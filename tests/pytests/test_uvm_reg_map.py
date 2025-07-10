@@ -47,7 +47,6 @@ def test_reg_block_with_single_reg():
 
         def build(self):
             self._set_lock()
-            self.set_prediction(predict_t.PREDICT_DIRECT)
     # START
     block = uvm_reg_block()
     reg = temp_reg()
@@ -64,7 +63,6 @@ def test_reg_block_with_multiple_regs():
 
         def build(self):
             self._set_lock()
-            self.set_prediction(predict_t.PREDICT_DIRECT)
     # START
     block = uvm_reg_block()
     reg0 = temp_reg()
@@ -128,7 +126,6 @@ def test_reg_configure():
 
         def build(self):
             self._set_lock()
-            self.set_prediction(predict_t.PREDICT_DIRECT)
     # START
     reg = temp_reg()
     parent = uvm_reg_block()
@@ -204,7 +201,6 @@ def test_simple_reg_model():
             self.PEN.configure(self, 1, 3, 'RW', 0, 0)
             self.EPS.configure(self, 1, 4, 'RW', 0, 0)
             self._set_lock()
-            self.set_prediction(predict_t.PREDICT_DIRECT)
 
     class LineStatusRegister(uvm_reg):
         def __init__(self, name="LineStatusRegister", reg_width=32):
@@ -220,7 +216,6 @@ def test_simple_reg_model():
             self.PE.configure(self, 1, 2, 'RW', 1, 0)
             self.FE.configure(self, 1, 3, 'RW', 1, 0)
             self._set_lock()
-            self.set_prediction(predict_t.PREDICT_DIRECT)
 
     class Regs(uvm_reg_block):
         def __init__(self, name):
