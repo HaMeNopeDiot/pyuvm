@@ -50,7 +50,6 @@ def test_reg_configure():
 
         def build(self):
             self._set_lock()
-            self.set_prediction(predict_t.PREDICT_DIRECT)
     # START
     reg = temp_reg()
     parent = uvm_reg_block()
@@ -72,7 +71,6 @@ def test_reg_with_single_field():
         def build(self):
             self.myfield_1.configure(myreg, 16, 0, "RW", False, 10)
             self._set_lock()
-            self.set_prediction(predict_t.PREDICT_DIRECT)
 
     myreg = my_reg("myreg", 32)
     myreg.build()
@@ -93,7 +91,6 @@ def test_reg_with_multiple_fields():
             self.myfield_1.configure(myreg, 16, 0, "RW", False, 10)
             self.myfield_2.configure(myreg, 16, 16, "RW", False, 20)
             self._set_lock()
-            self.set_prediction(predict_t.PREDICT_DIRECT)
 
     myreg = my_reg("myreg", 32)
     myreg.build()
@@ -114,7 +111,6 @@ def test_reg_with_multiple_felds_reset():
             self.myfield_1.configure(self, 16, 0, "RW", False, int('0x0f', 16))
             self.myfield_2.configure(self, 16, 16, "RW", False, int('0x0f', 16))
             self._set_lock()
-            self.set_prediction(predict_t.PREDICT_DIRECT)
             print("calling build")
 
     myreg = my_reg("myreg",32)
@@ -138,13 +134,11 @@ def test_reg_with_multiple_fields_get_mirrored_value():
             self.myfield_1.configure(self, 16, 0, "RW", False, int('0xf', 16))
             self.myfield_2.configure(self, 16, 16, "RW", False, int('0xf', 16))
             self._set_lock()
-            self.set_prediction(predict_t.PREDICT_DIRECT)
 
     myreg = my_reg("myreg", 32)
     myreg.build()
     myreg.reset()
-    myreg.set_prediction(predict_t.PREDICT_DIRECT)
-    myreg.predict(int('0x0f00f0', 16), access_e.UVM_WRITE)
+    myreg.predict(value=int('0x0f00f0', 16), kind=uvm_predict_e.UVM_PREDICT_WRITE)
     assert myreg.get_mirrored_value() == int('0x0f00f0', 16)
     myreg.reset()
     assert myreg.get_mirrored_value() == int('0xf000f', 16)
