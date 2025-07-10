@@ -255,7 +255,7 @@ class uvm_reg_field(uvm_object):
     # atomic set value
     def field_set(self, value: int):
         # Define an all 1 values
-        _mask = int("".join(["1"] * self._size), 2)
+        _mask = (1 << self._size) - 1
         # check if value given is bigger than the size of field
 
         # Ideally the set value should be checked against the parent
