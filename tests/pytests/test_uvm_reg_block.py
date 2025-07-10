@@ -5,6 +5,7 @@ from pyuvm.s27_uvm_reg_pkg import uvm_reg_block, uvm_reg, uvm_reg_map
 from pyuvm.s27_uvm_reg_pkg import uvm_reg_field
 from pyuvm.s24_uvm_reg_includes import access_e, predict_t
 from pyuvm.s17_uvm_reg_enumerations import uvm_hier_e
+from pyuvm.s17_uvm_reg_enumerations import uvm_predict_e
 
 ##############################################################################
 # TIPS
@@ -620,7 +621,10 @@ def test_simple_reg_model():
 
     LSR.reset()
     assert LSR.get_mirrored_value() == 0
-    LSR.predict(12, access_e.UVM_WRITE)
+    LSR.predict(12, kind=uvm_predict_e.UVM_PREDICT_WRITE)
     assert LSR.get_mirrored_value() == 12
     for field in LSR.get_fields():
         print(field.get_value())
+
+    LSR.predict(12, kind=uvm_predict_e.UVM_PREDICT_READ)
+    assert LSR.get_mirrored_value() == 12
