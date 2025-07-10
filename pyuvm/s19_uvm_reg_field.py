@@ -249,10 +249,6 @@ class uvm_reg_field(uvm_object):
     def set_response(self, f_response: uvm_resp_t):
         self._response = f_response
 
-    # Atomic set prediction type for field. This comes from the register parent
-    def set_prediction(self, pred_type: predict_t):
-        self._prediction = pred_type
-
     # Atomic get status from fields
     def get_response(self):
         return self._response
